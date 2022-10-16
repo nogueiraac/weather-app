@@ -36,8 +36,9 @@ function App() {
 
   useEffect(() => {
     if (coordenates.latitude !== 0) {
+      console.log(import.meta.env.VITE_APP_API_KEY)
       try {
-        axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${coordenates.latitude}&lon=${coordenates.longitude}&appid=608cd3182ab99cc02a557c5511b7fc81&lang=pt_br`)
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?lat=${coordenates.latitude}&lon=${coordenates.longitude}&appid=${import.meta.env.VITE_APP_API_KEY}&lang=pt_br`)
         .then((response) => {
           setDadosApi(response.data);
         });
